@@ -1,0 +1,4 @@
+appdirs==1.4.4
+beautifulsoup4==4.9.3
+requests==2.22.0
+telegram-send==0.25
