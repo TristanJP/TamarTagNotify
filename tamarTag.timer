@@ -1,0 +1,10 @@
+[Unit]
+Description=Regularly runs the Tamar Tag Service
+Requires=tamarTag.service
+
+[Timer]
+Unit=tamarTag.service
+OnCalendar=*-*-* 12:10:00
+
+[Install]
+WantedBy=timers.target

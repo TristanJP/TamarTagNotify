@@ -1,0 +1,11 @@
+[Unit]
+Description=Runs the Tamar Tag checking service
+Wants=tamarTag.timer
+
+[Service]
+Type=oneshot
+User={USER}
+ExecStart={PATH}/tamar_tag.py
+
+[Install]
+WantedBy=multi-user.target
