@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import appdirs
 import json
 import os
