@@ -54,10 +54,13 @@ class TamarTag:
             "page": "topUpAccount"
         }
         resp = self.session.get(self.URL, params=params)
-        return int(BeautifulSoup(resp.text, "html.parser").find('input', class_='form-control')['value'])
+        current_credit = int(BeautifulSoup(resp.text, "html.parser").find('input', class_='form-control')['value'])
+        print(f"Current TamarTag Credit: £{current_credit}")
+        return current_credit
 
     def warn(self, current_credit):
-        telegram_send.send(messages=[f"Tamar Tag credit is getting low: {current_credit}"])
+        print(f"Credit under minimum £{self.config['minimum']} - Sending warning message")
+        telegram_send.send(messages=[f"Tamar Tag credit is getting low: £{current_credit}"])
 
     def main(self):
         with requests.Session() as self.session:
