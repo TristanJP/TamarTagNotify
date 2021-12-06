@@ -54,7 +54,7 @@ class TamarTag:
             "page": "topUpAccount"
         }
         resp = self.session.get(self.URL, params=params)
-        current_credit = int(BeautifulSoup(resp.text, "html.parser").find('input', class_='form-control')['value'])
+        current_credit = float(BeautifulSoup(resp.text, "html.parser").find('input', class_='form-control')['value'])
         print(f"Current TamarTag Credit: £{current_credit}")
         return current_credit
 
